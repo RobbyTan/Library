@@ -103,13 +103,13 @@ public class PnlAdmin extends javax.swing.JPanel {
             generateData();
             JasperReport jasperReport;
             JasperPrint jasperPrint;
-            InputStream path = this.getClass().getResourceAsStream("report1.jrxml");
+            InputStream path = this.getClass().getResourceAsStream("report2.jrxml");
             jasperReport = JasperCompileManager.compileReport(path);
             Map parameters = new HashMap();
             parameters.put("datemin", getDate(dtcAdminFrom));
             parameters.put("datemax", getDate(dtcAdminTo));
             parameters.put("totalFee", tFee);
-            parameters.put("location","Laporan Keuangan "+getLocationFromDatabase());
+            parameters.put("location","Laporan Keuangan Library Services "+getLocationFromDatabase() + " Campus");
             jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, myConn);
             JasperViewer.viewReport(jasperPrint, false);
         } catch (JRException ex) {
